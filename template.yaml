@@ -26,6 +26,7 @@ Resources:
           OTEL_PROPAGATORS: tracecontext
           OTEL_SERVICE_NAME: "Example"
           OTEL_METRICS_DATASET: "Example"
+          HONEYCOMB_API_KEY: "InsertYourKeyHereOrResolveSSM"
       Policies:
         - Version: '2012-10-17'
           Statement:
