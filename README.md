@@ -31,7 +31,7 @@ But according to Honeycomb, this is only available if you are using v0.66.0 of t
 1. Clone this repository
 
 ```bash
-git clone https://github.com/kmcquade/otel-failure-example.git
+git clone https://github.com/kmcquade/otel-lambda-failure-example.git
 cd otel-failure-example
 ```
 
