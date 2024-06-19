@@ -1,0 +1,29 @@
+
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Timeout: 60
+    MemorySize: 128
+
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: hello_world.example.handler
+      FunctionName: otel-failure-example
+      Runtime: python3.11
+      Architectures:
+        - x86_64
+      Layers:
+        - !Sub "arn:aws:lambda:${AWS::Region}:901920570463:layer:aws-otel-python-amd64-ver-1-24-0:1"
+      Environment:
+        Variables:
+          AWS_LAMBDA_EXEC_WRAPPER: /opt/otel-instrument
+          OPENTELEMETRY_COLLECTOR_CONFIG_FILE: /var/task/otel-collector-config.yaml
+          OTEL_PROPAGATORS: tracecontext
+          OTEL_SERVICE_NAME: "Example"
+          OTEL_METRICS_DATASET: "Example"
+
