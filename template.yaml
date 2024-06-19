@@ -26,4 +26,11 @@ Resources:
           OTEL_PROPAGATORS: tracecontext
           OTEL_SERVICE_NAME: "Example"
           OTEL_METRICS_DATASET: "Example"
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - "s3:ListAllMyBuckets"
+              Resource: "*"
 
